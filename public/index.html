@@ -60,13 +60,12 @@
   </div>
   <script>
     const box = document.querySelector('.box')
-    const end = {
-      height: 100,
-      'margin-top': 300,
-    }
 
     document.querySelector('.animate-btn').onclick = async () => {
-      const res = await animatejs.animate(box, end)
+      const res = await animatejs.animate(box, {
+        height: 100,
+        'margin-top': 300,
+      })
       console.log('结束', res)
     }
 

@@ -1,0 +1,54 @@
+{
+  "name": "@kuan1/animate",
+  "version": "1.0.0",
+  "description": "js平滑动画工具类",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "private": true,
+  "scripts": {
+    "dev": "rimraf lib && NODE_ENV=development rollup --config --watch",
+    "build": "rimraf lib && NODE_ENV=production rollup --config && node scripts/prepublish.js",
+    "publish:npm": "cd lib && npm publish --access public && cd -",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-html": "^0.2.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "axios": "^0.20.0",
+    "eslint": "^7.4.0",
+    "eslint-plugin-html": "^6.0.2",
+    "fs-extra": "^9.0.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.21.0",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "typescript": "^3.9.3",
+    "yorkie": "^2.0.0"
+  },
+  "author": "kuan1",
+  "keywords": [
+    "animate",
+    "tween"
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuan1/animate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kuan1/animate/issues"
+  },
+  "homepage": "https://github.com/kuan1/animate#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHooks": {
+    "commit-msg": "node scripts/verifyCommit.js"
+  }
+}

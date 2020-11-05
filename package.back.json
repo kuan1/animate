@@ -1,0 +1,18 @@
+{
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halobear/js-monitor.git"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "author": "kuan1",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/halobear/utils/issues"
+  },
+  "homepage": "https://github.com/halobear/utils#readme",
+  "gitHooks": {
+    "commit-msg": "node scripts/verifyCommit.js"
+  }
+}

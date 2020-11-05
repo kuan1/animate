@@ -1,11 +1,8 @@
-import { NumberObj } from 'types'
-import easings from './easings'
-import noop from './noop'
-import { isEqual } from './utils'
+import { NumberObj, EasingFn } from 'types'
+import easings from '../utils/easings'
+import noop from '../utils/noop'
+import { isEqual } from '../utils/utils'
 
-interface EasingFn {
-  (percent: number, start: number, end: number): number
-}
 
 let fxNow: number | undefined
 function createFxNow() {
@@ -15,7 +12,7 @@ function createFxNow() {
   return (fxNow = Date.now())
 }
 
-class Tween<T extends NumberObj, N extends T> {
+export class Tween<T extends NumberObj> {
   private now: T // 当前数据
   private startTime: number // 开始时间
   private currentTime: number // 当前时间
@@ -28,7 +25,7 @@ class Tween<T extends NumberObj, N extends T> {
     private end: T,
     private complete: ((end: T) => void) = noop,
     private progress: ((end: T) => void) = noop,
-    duration: number,
+    duration: number | undefined,
     easing: EasingFn | undefined
   ) {
     this.now = this.start
@@ -47,9 +44,9 @@ class Tween<T extends NumberObj, N extends T> {
     end: NumberObj,
     complete: ((end: NumberObj) => void) = noop,
     progress: ((end: NumberObj) => void) = noop,
-    duration: number,
+    duration: number | undefined,
     easing: EasingFn | undefined
-  ) {
+  ): Tween<NumberObj> {
     return new Tween(start, end, complete, progress, duration, easing)
   }
 
@@ -61,6 +58,7 @@ class Tween<T extends NumberObj, N extends T> {
   doStop() {
     if (!this.inProgress) return
     this.now = this.end
+    this.progress(this.now)
     this.complete(this.end)
     this.inProgress = false
   }

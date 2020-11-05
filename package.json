@@ -1,5 +1,5 @@
 {
-  "name": "@kuan1/animate",
+  "name": "@kuan1/animatejs",
   "version": "1.0.0",
   "description": "js平滑动画工具类",
   "main": "lib/index.js",

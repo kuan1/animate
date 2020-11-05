@@ -1,5 +1,7 @@
-import tween from './utils/tween'
+import tween from './core/tween'
+import animate from './core/animate'
 
 export {
-  tween
+  tween,
+  animate
 }

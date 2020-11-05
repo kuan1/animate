@@ -70,12 +70,12 @@
     }
 
     document.querySelector('.scroll-btn').onclick = async () => {
-      const res = await animatejs.animate(document.querySelector('.container'), { scrollTop: 10 })
+      const res = await animatejs.animate(document.querySelector('.container'), { scrollTop: 300 })
       console.log('滚动结束', res)
     }
 
     document.querySelector('.scroll-btn2').onclick = async () => {
-      const res = await animatejs.animate(document.documentElement, { scrollTop: 10 })
+      const res = await animatejs.animate(document.documentElement, { scrollTop: 500 })
       console.log('body滚动结束', res)
     }
   </script>

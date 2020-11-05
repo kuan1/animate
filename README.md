@@ -1,15 +1,15 @@
-# @kuan1/animate
+# @luzhongk/animate
 
 js平滑动画工具类
 
 ## 安装
 ```bash
-npm i @kuan1/animate 
+npm i @luzhongk/animate 
 ```
 
 ## 引入
 ```js
-import animatejs from '@kuan1/animate'
+import animatejs from '@luzhongk/animate'
 
 // 例子
 async function test() {

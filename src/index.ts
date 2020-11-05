@@ -1,6 +1,5 @@
-class Animate {
+import tween from './utils/tween'
 
+export {
+  tween
 }
-
-
-export default Animate

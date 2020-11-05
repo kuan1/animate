@@ -23,15 +23,47 @@
       font-size: 20px;
       text-align: center;
     }
+
+    .box {
+      height: 300px;
+      margin-top: 100px;
+      background-color: #eee;
+    }
   </style>
   <script src="./index.js"></script>
 </head>
 
 <body>
   <h2>@kuan/animate</h2>
-  <div class="content">测试</div>
+  <div class="content">
+    <button>测试</button>
+    <div class="box"></div>
+  </div>
   <script>
-    // todo
+    const box = document.querySelector('.box')
+    function complete(e) {
+      console.log('complete', e)
+    }
+    function progress(e) {
+      console.log('progress', e)
+      Object.keys(e).forEach(item => {
+        box.style[item] = e[item] + 'px'
+      })
+    }
+    const start = {
+      height: 300,
+      marginTop: 100,
+    }
+
+    const end = {
+      height: 100,
+      marginTop: 300,
+    }
+
+
+    document.querySelector('button').onclick = () => {
+      KuanAnimate.tween(start, end, complete, progress)
+    }
   </script>
 </body>
 

@@ -8,7 +8,7 @@ import pkg from './package.json'
 
 const isDev = process.env.NODE_ENV === 'development'
 
-const name = 'haloWechat'
+const name = 'KuanAnimate'
 
 function getOutPut() {
   return isDev

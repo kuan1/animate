@@ -2,11 +2,12 @@
 
 js平滑动画工具类
 
-## 通过npm使用
+## 安装
 ```bash
 npm i @kuan1/animate 
 ```
 
+## 引入
 ```js
 import animatejs from '@kuan1/animate'
 
@@ -22,7 +23,7 @@ async function test() {
 }
 ```
 
-## cdn引入使用demo
+## 通过cdn引入
 
 ```html
 <!DOCTYPE html>

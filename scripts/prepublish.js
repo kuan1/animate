@@ -6,6 +6,7 @@ const resolve = (...dir) => path.resolve(__dirname, '..', ...dir)
 async function start() {
   // 复制types
   await fs.copy(resolve('types'), resolve('lib/types'))
+  await fs.copy(resolve('README.md'), resolve('lib/README.md'))
   // 复制package.json
   const pkg = fs.readFileSync(resolve('package.json'))
   const pkgJSON = JSON.parse(pkg, 'utf-8')

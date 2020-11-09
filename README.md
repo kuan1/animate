@@ -7,6 +7,11 @@ js平滑动画工具类
 npm i @luzhongk/animate 
 ```
 
+## api
+- `tabs` 初始化tabs
+- `animate` 通用操作dom工具类
+- `tween` 平滑轨迹函数
+
 ## 引入
 ```js
 import animatejs from '@luzhongk/animate'

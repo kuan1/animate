@@ -24,7 +24,7 @@
       min-height: 200px;
       font-size: 20px;
       text-align: center;
-      height: 200vh;
+      height: 100vh;
     }
 
     .box {
@@ -44,6 +44,23 @@
       bottom: 100px;
       right: 30px;
     }
+
+    .tabs {
+      max-width: 300px;
+      overflow-x: auto;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .tab {
+      display: inline-block;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      color: red;
+    }
   </style>
   <script src="./index.js"></script>
 </head>
@@ -53,20 +70,38 @@
     <h2>@kuan/animate</h2>
     <div class="content">
       <button class="animate-btn">动画</button>
+      <button class="animate-stop-btn">停止</button>
       <button class="scroll-btn">滚动1</button>
       <button class="scroll-btn2">滚动2</button>
       <div class="box"></div>
+    </div>
+    <div class="content">
+      <div class="tabs">
+        <div class="tab">哈哈哈哈</div>
+        <div class="tab">哈哈哈哈</div>
+        <div class="tab">哈哈哈哈</div>
+        <div class="tab">哈哈哈哈</div>
+        <div class="tab">哈哈哈哈</div>
+      </div>
     </div>
   </div>
   <script>
     const box = document.querySelector('.box')
 
-    document.querySelector('.animate-btn').onclick = async () => {
-      const res = await animatejs.animate(box, {
+    let animate1
+    document.querySelector('.animate-btn').onclick = () => {
+      animate1 = animatejs.animate(box, {
         height: 100,
         'margin-top': 300,
+      }, 5000, 'ease', () => {
+        console.log('结束')
+        box.style.height = '300px'
+        box.style.marginTop = '100px'
       })
-      console.log('结束', res)
+    }
+
+    document.querySelector('.animate-stop-btn').onclick = () => {
+      animate1 && animate1.stop()
     }
 
     document.querySelector('.scroll-btn').onclick = async () => {
@@ -78,6 +113,8 @@
       const res = await animatejs.animate(document.documentElement, { scrollTop: 500 })
       console.log('body滚动结束', res)
     }
+
+    animatejs.tabs(document.querySelector('.tabs'), document.querySelectorAll('.tab'), 'active')
   </script>
 </body>
 

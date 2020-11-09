@@ -8,9 +8,9 @@ class Animate {
   constructor(
     private elem: HTMLElement,
     private end: NumberObj,
-    private callback: ((end: NumberObj) => void) = noop,
     private duration: number | undefined,
     private easing: EasingFn | undefined,
+    private callback: ((end: NumberObj) => void) = noop,
   ) {
     this.animate()
   }
@@ -18,11 +18,10 @@ class Animate {
     elem: HTMLElement,
     end: NumberObj,
     duration: number | undefined,
-    easing: EasingFn | undefined
+    easing: EasingFn | undefined,
+    callback: ((end: NumberObj) => void) = noop,
   ) {
-    return new Promise(reosolve => {
-      new Animate(elem, end, reosolve, duration, easing)
-    })
+    return new Animate(elem, end, duration, easing, callback)
   }
   animate() {
     const progress = (now: NumberObj) => {
@@ -37,6 +36,11 @@ class Animate {
     } else {
       this.tween.doStart()
     }
+    return this
+  }
+  stop() {
+    this.tween?.doStop()
+    return this
   }
   cur() {
     const start: NumberObj = {}
